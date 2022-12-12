@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Amarat Materials</title>
-    <link rel="stylesheet" href="{{url('/').'/css/boot.css'}}"/>
-    <script type="text/javascript" href="{{url('/').'/js/boot.js'}}"></script>
+    <link rel="stylesheet" href="{{url('/').'/css/bootstrap.css'}}">
+    <link rel="stylesheet" href="{{url('/').'/css/sidebar.css'}}"/>
+    <script type="text/javascript" src="{{url('/').'/js/bootstrap.js'}}"></script>
+    <script type="text/javascript" src="{{url('/').'/js/jquery.js'}}"></script>
+
 </head>
 <style>
     body {
@@ -22,11 +25,17 @@
 
                 <img class="col-lg-6 col-12 d-none d-sm-block" src="{{url('/').'/images/construction.jpg'}}">
 
-                <div class="col-lg-6 col-12">
-                    <div class="d-flex justify-content-center">
-                        <img src="{{url('/').'/images/logo.png'}}" width="80" height="80">
+                <div class="col-lg-6 col-12 p-4" style="background: #e8e8e8">
+
+                    <div class="card p-2">
+                        <center>
+                            <img src="{{url('/').'/images/logo.png'}}" width="80" height="80">
+                            <h2>Amarat Materials</h2>
+                        </center>
                     </div>
-                    <h2>Login</h2>
+
+
+                    <h3 class="mt-4">Login</h3>
                     <br>
                     @if (Session::has('success'))
                         <div class="alert alert-success ">
@@ -46,7 +55,7 @@
                         <label>Enter Password</label>
                         <input type="password" value="adminadmin" name="password" class="form-control">
                         <br>
-                        <button class="btn btn-primary btn-sm w-100">Login</button>
+                        <button class="btn btn-dark btn-sm w-100">Login</button>
                     </form>
                 </div>
             </div>
