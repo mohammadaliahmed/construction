@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('description');
             $table->string('subtitle');
             $table->integer('price');
-            $table->integer('cost_price');
             $table->integer('quantity');
             $table->string('status');
             $table->text('images');

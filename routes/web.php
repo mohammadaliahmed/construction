@@ -18,5 +18,10 @@ Route::get('/',[\App\Http\Controllers\DashboardController::class,'Dashboard'])->
 Route::get('/login',[\App\Http\Controllers\LoginController::class,'Login'])->name('login');
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'Login']);
 
+Route::prefix('products')->group(function () {
+    Route::get('/addProduct',[\App\Http\Controllers\ProductsController::class,'AddProduct'])->middleware('abc');
+
+});
+
 
 
