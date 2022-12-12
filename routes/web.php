@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login',[\App\Http\Controllers\LoginController::class,'Login']);
+
 Route::get('/flights', function () {
     // Only authenticated users may access this route...
 })->middleware('auth');
