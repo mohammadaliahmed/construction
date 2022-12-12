@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employees;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -13,28 +15,32 @@ class LoginController extends Controller
         if ($request->isMethod('post')) {
 
 
+            $EmployeeModel = new Employees();
+            $Emp = $EmployeeModel->CheckEmail($request->email);
+            if ($Emp == null) {
+                return redirect()->back()->with('error', 'Email not found');
+
+            } else {
+                $Emp = $EmployeeModel->AttemptLogin($request->email, $request->password);
+                if ($Emp == null) {
+                    return redirect()->back()->with('error', 'Wrong Password');
+
+                } else {
+                    $ses_data = [
+                        'id' => $Emp->id,
+                        'name' => $Emp->name,
+                        'logged_in' => TRUE,
+                    ];
+                    session($ses_data);
+
+                    return redirect()->to('/');
+
+                }
+            }
+
         } else {
-            return view('index');
+            return view('login');
         }
 
-//
-//        $session=session();
-//        $ses_data = [
-//            'id' => "1",
-//            'name' => "ali",
-//            'portal_id' => "dsad",
-//            'logged_in' => TRUE,
-//        ];
-//        $session->set($ses_data);
-//
-//        if (Auth::attempt($credentials)) {
-//            $request->session()->regenerate();
-//
-//            return redirect()->intended('dashboard');
-//        }
-
-//        return back()->withErrors([
-//            'email' => 'The provided credentials do not match our records.',
-//        ])->onlyInput('email');
     }
 }

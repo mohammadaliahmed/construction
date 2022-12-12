@@ -13,14 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[\App\Http\Controllers\DashboardController::class,'Dashboard'])->middleware('abc');
 
-Route::get('/login',[\App\Http\Controllers\LoginController::class,'Login']);
+Route::get('/login',[\App\Http\Controllers\LoginController::class,'Login'])->name('login');
+Route::post('/login',[\App\Http\Controllers\LoginController::class,'Login']);
 
-Route::get('/flights', function () {
-    // Only authenticated users may access this route...
-})->middleware('auth');
 
 
