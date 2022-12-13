@@ -19,6 +19,8 @@ Route::get('/login',[\App\Http\Controllers\LoginController::class,'Login'])->nam
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'Login']);
 
 Route::prefix('products')->group(function () {
+    Route::get('/',[\App\Http\Controllers\ProductsController::class,'ListProducts'])->middleware('abc');
+    Route::post('/addProduct',[\App\Http\Controllers\ProductsController::class,'AddProduct'])->middleware('abc');
     Route::get('/addProduct',[\App\Http\Controllers\ProductsController::class,'AddProduct'])->middleware('abc');
 
 });
