@@ -15,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\DashboardController::class,'Dashboard'])->middleware('abc');
 
+Route::get('/logout',[\App\Http\Controllers\LoginController::class,'Logout']);
 Route::get('/login',[\App\Http\Controllers\LoginController::class,'Login'])->name('login');
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'Login']);
+Route::get('/deleteImage/{id}',[\App\Http\Controllers\ProductsController::class,'DeleteImage']);
 
 Route::prefix('products')->group(function () {
     Route::get('/',[\App\Http\Controllers\ProductsController::class,'ListProducts'])->middleware('abc');
+    Route::get('/editProduct/{id}',[\App\Http\Controllers\ProductsController::class,'EditProduct'])->middleware('abc');
+    Route::post('/editProduct/{id}',[\App\Http\Controllers\ProductsController::class,'EditProduct'])->middleware('abc');
     Route::post('/addProduct',[\App\Http\Controllers\ProductsController::class,'AddProduct'])->middleware('abc');
     Route::get('/addProduct',[\App\Http\Controllers\ProductsController::class,'AddProduct'])->middleware('abc');
 

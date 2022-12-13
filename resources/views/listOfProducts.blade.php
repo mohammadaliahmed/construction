@@ -32,11 +32,11 @@
                     <td>Rs. {{$Product->price}}</td>
                     <td>{{$Product->status}}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm">
-                            Edit
-                        </button>
+                        <a href="{{url('/').'/products/editProduct/'.$Product->id}}"><i class="bi bi-pencil-square m-2"></i>
+                        </a>
+                        <a href="{{url('/').'/products/editProduct/'.$Product->id}}"><i class="bi bi-eye-fill m-2"></i>
+                        </a>
                     </td>
-
                 </tr>
                 @php
                     $counter++;

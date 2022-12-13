@@ -43,4 +43,8 @@ class LoginController extends Controller
         }
 
     }
+    public  function Logout(){
+        session()->flush();
+        return redirect()->to('/');
+    }
 }

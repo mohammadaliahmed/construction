@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{url('/').'/css/sidebar.css'}}"/>
     <script type="text/javascript" src="{{url('/').'/js/bootstrap.js'}}"></script>
     <script type="text/javascript" src="{{url('/').'/js/jquery.js'}}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 
 </head>
 <body>

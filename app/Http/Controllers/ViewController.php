@@ -14,14 +14,33 @@ class ViewController extends Controller
         $Employee = new Employees();
         $Employee = $Employee->GetEmployee($id);
         $nav = [
+            'Home' => [
+                'Home' => '',
+            ],
             'Products' => [
                 'List Products' => 'products',
                 'Add product' => 'products/addProduct',
                 'Order product' => 'products/addProduct',
+            ], 'Orders' => [
+                'List Orders' => 'orders',
+                'Add Order' => 'orders/addOrder',
+            ],
+            'Invoices' => [
+                'List Invoices' => 'invoices/',
+            ],
+            'Purchase Order' => [
+                'List PO' => 'purchaseOrders/',
+            ],
+            'Vendors' => [
+                'List Vendors' => 'vendors/',
+            ],
+            'Customers' => [
+                'List Customers' => 'customers/',
+            ], 'Sites' => [
+                'List Sites' => 'sites/',
             ],
             'Employees' => [
-                'List Employee' => 'employees/',
-                'Add Employee' => 'employees/addEmployee',
+                'List Employees' => 'employees/',
             ],
             'Account' => [
                 'Settings' => 'settings/',

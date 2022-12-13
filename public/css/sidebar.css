@@ -76,3 +76,7 @@ label{
     margin-top: 20px;
     margin-bottom: 5px;
 }
+a{
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
